@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Amin Ifty | Front‑End Developer & Data Analyst</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom colour palette for a professional look */
+        :root {
+            --primary: #41729f; /* muted blue matching the original site */
+            --secondary: #274472; /* dark slate for backgrounds */
+            --accent: #c5dbf7; /* soft light blue */
+            --neutral: #EEE2DC; /* light neutral background */
+            --text-light: #F3F4F6; /* light text */
+        }
+        body {
+            background-color: var(--secondary);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 75%;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 9999px;
+        }
+        .expertise-card, .tool-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .expertise-card:hover, .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(65, 114, 159, 0.5), 0 4px 6px -2px rgba(65, 114, 159, 0.05);
+        }
+        .typing-container {
+            min-height: 40px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-sm shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo: Display two logos with a separator -->
+                <a href="https://alaminifty.github.io/al-amin-ifty/" target="_blank" class="flex items-center space-x-2">
+                    <img src="logo1.png" alt="Personal Branding Logo" class="h-8">
+                    <span class="text-white mx-2">|</span>
+                    <img src="logo2.png" alt="Business Entity Logo" class="h-8">
+                </a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-300 hover:text-blue-400 transition duration-200 font-medium">About</a>
+                    <a href="#skills" class="text-gray-300 hover:text-blue-400 transition duration-200 font-medium">Skills</a>
+                    <a href="#projects" class="text-gray-300 hover:text-blue-400 transition duration-200 font-medium">Projects</a>
+                    <a href="#experience" class="text-gray-300 hover:text-blue-400 transition duration-200 font-medium">Experience</a>
+                    <a href="#contact" class="text-gray-300 hover:text-blue-400 transition duration-200 font-medium">Contact</a>
+                </nav>
+                <!-- Mobile Menu Button (Hamburger) -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
+            <a href="#about" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">About</a>
+            <a href="#skills" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Skills</a>
+            <a href="#projects" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Projects</a>
+            <a href="#experience" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Experience</a>
+            <a href="#contact" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Contact</a>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section id="hero" class="relative overflow-hidden pt-16 pb-24 sm:pt-24 sm:pb-32 lg:pt-32 lg:pb-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight">
+                Al&nbsp;Amin&nbsp;Ifty
+            </h1>
+            <p class="mt-4 text-2xl sm:text-3xl font-light text-blue-400 typing-container">
+                <span id="typing-text" class="font-mono"></span>
+            </p>
+            <p class="mt-8 max-w-3xl mx-auto text-lg text-gray-400">
+                Front‑End Developer &amp; Data Analyst with hands‑on experience in building user‑focused websites and insightful data dashboards. I blend interactive design with data‑driven logic, combining creativity and computation to deliver smart, user‑centered solutions.
+            </p>
+            <div class="mt-12 space-x-4">
+                <a href="#projects" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                    View Projects
+                </a>
+                <a href="#contact" class="inline-flex items-center px-6 py-3 border border-blue-600 text-base font-medium rounded-xl text-blue-400 hover:text-white hover:bg-blue-600 transition duration-300 transform hover:scale-105">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- About Me Section -->
+    <section id="about" class="py-16 sm:py-24 bg-gray-900 border-t border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-3 lg:gap-16">
+                <div class="lg:col-span-1 flex justify-center lg:justify-start mb-8 lg:mb-0">
+                    <!-- Headshot: Replace with actual photo -->
+                    <div class="w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden bg-gray-700 flex items-center justify-center border-4 border-blue-500 shadow-2xl">
+                        <img src="logo4.jpeg" alt="Al Amin Ifty Headshot" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="lg:col-span-2">
+                    <h2 class="section-title text-3xl font-bold">About Me</h2>
+                    <p class="mt-4 text-lg text-gray-300 leading-relaxed">
+                        Bridging front‑end and data science, I’m a developer and analyst who crafts engaging interfaces and transforms raw data into insightful visuals. My work combines clean, responsive design with statistical rigor, ensuring every project is both beautiful and meaningful.
+                    </p>
+                    <p class="mt-4 text-lg text-gray-300 leading-relaxed">
+                        I’m particularly passionate about creating dashboards and storytelling with data. Whether building a React application or designing a PowerBI report, I strive to connect creativity with computation to empower decision‑makers and end users.
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-4">
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm font-medium rounded-full">Front‑End Development</span>
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm font-medium rounded-full">Data Analysis</span>
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm font-medium rounded-full">Dashboard Design</span>
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm font-medium rounded-full">React &amp; Tailwind CSS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Business Entity Banner Section -->
+<!-- Business Entity Banner Section (Sticky) -->
+<!-- Business Entity Banner Section (Sticky) -->
+<section id="business-banner" class="relative py-16 sm:py-24 bg-gray-900 border-t border-b border-gray-700">
+    <!-- Sticky Banner Content -->
+    <div id="sticky-banner" class="sticky top-0 z-20 px-4 sm:px-6 lg:px-8 transition-all duration-300">
+        <div class="max-w-7xl mx-auto text-center py-16"> <!-- Added py-16 for more top and bottom padding -->
+            <!-- Heading -->
+            <h2 class="text-4xl sm:text-5xl font-extrabold text-white leading-tight">
+                Empowering Businesses with Innovative Solutions
+            </h2>
+            <!-- Subheading -->
+            <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+                Discover how our cutting-edge technology and personalized services help businesses grow, streamline operations, and succeed in a fast-evolving digital landscape.
+            </p>
+            <!-- CTA Button -->
+            <a href="https://www.alaminifty.com/rank-nao" class="mt-8 inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                Explore Rank Nao
+            </a>
+        </div>
+    </div>
+
+    <!-- Banner Image -->
+    <div class="relative mt-12">
+        <img src="banner.png" alt="Business Entity Banner" class="w-full h-auto object-cover rounded-lg shadow-lg">
+    </div>
+</section>
+
+
+<!-- JavaScript to change the background color on scroll -->
+<script>
+    const banner = document.getElementById('sticky-banner');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            banner.classList.add('bg-gray-800');  // Darken the background
+        } else {
+            banner.classList.remove('bg-gray-800');  // Reset to original
+        }
+    });
+</script>
+
+
+<!-- JavaScript to change the background color on scroll -->
+<script>
+    const banner = document.getElementById('sticky-banner');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            banner.classList.add('bg-gray-800');  // Darken the background
+        } else {
+            banner.classList.remove('bg-gray-800');  // Reset to original
+        }
+    });
+</script>
+
+
+
+    <!-- Skills & Expertise Section -->
+    <section id="skills" class="py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl font-bold text-center mx-auto">Skills &amp; Expertise</h2>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1: Front-End Development -->
+                <div class="expertise-card bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <i data-lucide="layout" class="w-8 h-8 text-blue-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-300">Front‑End Development</h3>
+                    <p class="text-gray-400 text-sm">
+                        Designing and building responsive, user‑friendly web interfaces using modern technologies like HTML5, CSS3, JavaScript and React. Adept at crafting interactive dashboards and data‑driven UIs with Tailwind CSS.
+                    </p>
+                    <ul class="mt-4 text-sm text-gray-500 space-y-1">
+                        <li>• HTML5, CSS3, JavaScript</li>
+                        <li>• ReactJS, Tailwind CSS</li>
+                    </ul>
+                </div>
+                <!-- Card 2: Data Analysis & Visualization -->
+                <div class="expertise-card bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <i data-lucide="bar-chart-2" class="w-8 h-8 text-blue-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-300">Data Analysis &amp; Visualization</h3>
+                    <p class="text-gray-400 text-sm">
+                        Transforming raw data into actionable insights through exploratory analysis, statistical testing and visual storytelling. Skilled in Python, SQL and producing interactive dashboards with PowerBI and Tableau.
+                    </p>
+                    <ul class="mt-4 text-sm text-gray-500 space-y-1">
+                        <li>• Python (Pandas, NumPy), SQL</li>
+                        <li>• PowerBI, Tableau</li>
+                        <li>• A/B Testing &amp; Statistical Analysis</li>
+                    </ul>
+                </div>
+                <!-- Card 3: Backend & API Integration -->
+                <div class="expertise-card bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <i data-lucide="server" class="w-8 h-8 text-blue-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-300">Backend &amp; API Integration</h3>
+                    <p class="text-gray-400 text-sm">
+                        Building and integrating backend APIs to support web applications and data dashboards. Experienced with FastAPI, ETL pipelines and connecting to relational databases for scalable data solutions.
+                    </p>
+                    <ul class="mt-4 text-sm text-gray-500 space-y-1">
+                        <li>• FastAPI &amp; RESTful APIs</li>
+                        <li>• SQL databases &amp; ETL processes</li>
+                        <li>• Data integration &amp; automation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Tools & Tech Stack Section -->
+<section id="tools" class="py-16 sm:py-24 bg-gray-700/20 border-t border-b border-gray-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-3xl font-bold text-center mx-auto">Tools &amp; Tech Stack</h2>
+        <p class="mt-4 mb-12 text-center text-lg text-gray-400">Frameworks, languages, and platforms I use.</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+            <!-- Tool Card 1: HTML/CSS -->
+            <div class="tool-card bg-gray-800 p-4 rounded-xl text-center shadow-lg border border-gray-700">
+                <i data-lucide="code" class="w-8 h-8 text-blue-400 mx-auto mb-2"></i>
+                <p class="text-sm font-medium text-gray-200">HTML &amp; CSS</p>
+                <p class="text-xs text-gray-500">Markup &amp; Styling</p>
+            </div>
+            <!-- Tool Card 2: JavaScript (using 'zap' icon) -->
+            <div class="tool-card bg-gray-800 p-4 rounded-xl text-center shadow-lg border border-gray-700">
+                <i data-lucide="zap" class="w-8 h-8 text-blue-400 mx-auto mb-2"></i>
+                <p class="text-sm font-medium text-gray-200">JavaScript</p>
+                <p class="text-xs text-gray-500">Language</p>
+            </div>
+            <!-- Tool Card 3: ReactJS -->
+            <div class="tool-card bg-gray-800 p-4 rounded-xl text-center shadow-lg border border-gray-700">
+                <i data-lucide="atom" class="w-8 h-8 text-blue-400 mx-auto mb-2"></i>
+                <p class="text-sm font-medium text-gray-200">React</p>
+                <p class="text-xs text-gray-500">Front‑End Library</p>
+            </div>
+            <!-- Tool Card 4: FastAPI (using 'cloud' icon) -->
+            <div class="tool-card bg-gray-800 p-4 rounded-xl text-center shadow-lg border border-gray-700">
+                <i data-lucide="cloud" class="w-8 h-8 text-blue-400 mx-auto mb-2"></i>
+                <p class="text-sm font-medium text-gray-200">FastAPI</p>
+                <p class="text-xs text-gray-500">Backend Framework</p>
+            </div>
+            <!-- Tool Card 5: SQL -->
+            <div class="tool-card bg-gray-800 p-4 rounded-xl text-center shadow-lg border border-gray-700">
+                <i data-lucide="database" class="w-8 h-8 text-blue-400 mx-auto mb-2"></i>
+                <p class="text-sm font-medium text-gray-200">SQL</p>
+                <p class="text-xs text-gray-500">Databases</p>
+            </div>
+            <!-- Tool Card 6: PowerBI / Tableau -->
+            <div class="tool-card bg-gray-800 p-4 rounded-xl text-center shadow-lg border border-gray-700">
+                <i data-lucide="bar-chart" class="w-8 h-8 text-blue-400 mx-auto mb-2"></i>
+                <p class="text-sm font-medium text-gray-200">PowerBI / Tableau</p>
+                <p class="text-xs text-gray-500">Dashboards</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 sm:py-24 bg-gray-900 border-t border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl font-bold text-center mx-auto">Featured Projects</h2>
+            <p class="mt-4 mb-12 text-center text-lg text-gray-400">A selection of my projects covering front‑end applications, data analytics and dashboarding.</p>
+            <div class="space-y-16">
+                <!-- Project 1: Counter App -->
+                <div class="flex flex-col lg:flex-row bg-gray-800 p-6 rounded-2xl shadow-2xl border border-blue-700/50">
+                    <div class="lg:w-1/3 flex items-center justify-center p-4">
+                        <i data-lucide="plus-circle" class="w-16 h-16 text-blue-400"></i>
+                    </div>
+                    <div class="lg:w-2/3 lg:pl-8 mt-4 lg:mt-0">
+                        <h3 class="text-2xl font-semibold text-blue-300">Counter App with Closure &amp; Asynchronous JavaScript</h3>
+                        <p class="mt-2 text-gray-400">A simple web‑based counter demonstrating JavaScript closures, asynchronous behaviour and the <code>setTimeout</code> function. Users can increment, decrement and reset the counter while exploring closure scope.</p>
+                        <p class="mt-3 text-sm text-gray-500"><b>Technologies:</b> HTML, CSS, JavaScript</p>
+                        <div class="mt-4 flex space-x-3">
+                            <a href="https://github.com/alaminifty/counter-app" class="text-blue-400 hover:text-blue-300 font-medium transition duration-200 flex items-center" target="_blank">
+                                <i data-lucide="github" class="w-4 h-4 mr-1"></i> GitHub Repo
+                            </a>
+                            <a href="https://alaminifty.github.io/counter-app/" class="text-blue-400 hover:text-blue-300 font-medium transition duration-200 flex items-center" target="_blank">
+                                <i data-lucide="link" class="w-4 h-4 mr-1"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2: A/B Testing -->
+                <div class="flex flex-col lg:flex-row bg-gray-800 p-6 rounded-2xl shadow-2xl border border-blue-700/50">
+                    <div class="lg:w-1/3 flex items-center justify-center p-4">
+                        <i data-lucide="activity" class="w-16 h-16 text-blue-400"></i>
+                    </div>
+                    <div class="lg:w-2/3 lg:pl-8 mt-4 lg:mt-0">
+                        <h3 class="text-2xl font-semibold text-blue-300">A/B Testing – Measuring Conversion Rates</h3>
+                        <p class="mt-2 text-gray-400">Performed statistical A/B testing on web traffic data to compare conversion rates from clicks to purchases. Visualised results with box plots and conducted hypothesis testing to evaluate significance.</p>
+                        <p class="mt-3 text-sm text-gray-500"><b>Technologies:</b> Python (Pandas, SciPy), HTML, CSS</p>
+                        <div class="mt-4 flex space-x-3">
+                            <a href="https://github.com/alaminifty/project-hypothesis-testing" class="text-blue-400 hover:text-blue-300 font-medium transition duration-200 flex items-center" target="_blank">
+                                <i data-lucide="github" class="w-4 h-4 mr-1"></i> GitHub Repo
+                            </a>
+                            <a href="https://alaminifty.github.io/project-hypothesis-testing/" class="text-blue-400 hover:text-blue-300 font-medium transition duration-200 flex items-center" target="_blank">
+                                <i data-lucide="link" class="w-4 h-4 mr-1"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3: Correlation vs Causation -->
+                <div class="flex flex-col lg:flex-row bg-gray-800 p-6 rounded-2xl shadow-2xl border border-blue-700/50">
+                    <div class="lg:w-1/3 flex items-center justify-center p-4">
+                        <i data-lucide="link" class="w-16 h-16 text-blue-400"></i>
+                    </div>
+                    <div class="lg:w-2/3 lg:pl-8 mt-4 lg:mt-0">
+                        <h3 class="text-2xl font-semibold text-blue-300">Correlation ≠ Causation – Interactive Insight</h3>
+                        <p class="mt-2 text-gray-400">An interactive dashboard exploring how correlation does not imply causation. Utilised causal inference libraries like DoWhy, pygraphviz and EconML to let users probe variable relationships and simulate interventions.</p>
+                        <p class="mt-3 text-sm text-gray-500"><b>Technologies:</b> Python (DoWhy, pygraphviz, EconML), HTML, CSS, JS</p>
+                        <div class="mt-4 flex space-x-3">
+                            <a href="https://github.com/alaminifty/project-correlation-causation" class="text-blue-400 hover:text-blue-300 font-medium transition duration-200 flex items-center" target="_blank">
+                                <i data-lucide="github" class="w-4 h-4 mr-1"></i> GitHub Repo
+                            </a>
+                            <a href="https://alaminifty.github.io/project-correlation-causation/" class="text-blue-400 hover:text-blue-300 font-medium transition duration-200 flex items-center" target="_blank">
+                                <i data-lucide="link" class="w-4 h-4 mr-1"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 4: HR Analytics Dashboard -->
+                <div class="flex flex-col lg:flex-row bg-gray-800 p-6 rounded-2xl shadow-2xl border border-blue-700/50">
+                    <div class="lg:w-1/3 flex items-center justify-center p-4">
+                        <i data-lucide="users" class="w-16 h-16 text-blue-400"></i>
+                    </div>
+                    <div class="lg:w-2/3 lg:pl-8 mt-4 lg:mt-0">
+                        <h3 class="text-2xl font-semibold text-blue-300">HR Analytics Dashboard</h3>
+                        <p class="mt-2 text-gray-400">Built a PowerBI dashboard to visualise HR metrics such as attrition, satisfaction and overtime. Empowered HR teams to make data‑driven decisions with interactive charts and KPIs.</p>
+                        <p class="mt-3 text-sm text-gray-500"><b>Technologies:</b> Microsoft PowerBI, HTML, CSS</p>
+                        <div class="mt-4 flex space-x-3">
+                            <a href="https://github.com/alaminifty/powerbi-dashboard" class="text-blue-400 hover:text-blue-300 font-medium transition duration-200 flex items-center" target="_blank">
+                                <i data-lucide="github" class="w-4 h-4 mr-1"></i> GitHub Repo
+                            </a>
+                            <a href="https://alaminifty.github.io/powerbi-dashboard/" class="text-blue-400 hover:text-blue-300 font-medium transition duration-200 flex items-center" target="_blank">
+                                <i data-lucide="link" class="w-4 h-4 mr-1"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 5: Interactive Sales Dashboard -->
+                <div class="flex flex-col lg:flex-row bg-gray-800 p-6 rounded-2xl shadow-2xl border border-blue-700/50">
+                    <div class="lg:w-1/3 flex items-center justify-center p-4">
+                        <i data-lucide="shopping-cart" class="w-16 h-16 text-blue-400"></i>
+                    </div>
+                    <div class="lg:w-2/3 lg:pl-8 mt-4 lg:mt-0">
+                        <h3 class="text-2xl font-semibold text-blue-300">Interactive Sales Insights Dashboard</h3>
+                        <p class="mt-2 text-gray-400">Designed a Tableau dashboard to explore sales performance across product categories, regions and time periods. Enabled stakeholders to uncover trends and patterns through interactive charts.</p>
+                        <p class="mt-3 text-sm text-gray-500"><b>Technologies:</b> Tableau</p>
+                        <div class="mt-4 flex space-x-3">
+                            <a href="https://github.com/alaminifty/sales-dashboard-tableau" class="text-blue-400 hover:text-blue-300 font-medium transition duration-200 flex items-center" target="_blank">
+                                <i data-lucide="github" class="w-4 h-4 mr-1"></i> GitHub Repo
+                            </a>
+                            <a href="https://alaminifty.github.io/sales-dashboard-tableau/" class="text-blue-400 hover:text-blue-300 font-medium transition duration-200 flex items-center" target="_blank">
+                                <i data-lucide="link" class="w-4 h-4 mr-1"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 6: Outlier Detection -->
+                <div class="flex flex-col lg:flex-row bg-gray-800 p-6 rounded-2xl shadow-2xl border border-blue-700/50">
+                    <div class="lg:w-1/3 flex items-center justify-center p-4">
+                        <i data-lucide="alert-triangle" class="w-16 h-16 text-blue-400"></i>
+                    </div>
+                    <div class="lg:w-2/3 lg:pl-8 mt-4 lg:mt-0">
+                        <h3 class="text-2xl font-semibold text-blue-300">Outlier Detection in Cholesterol Levels</h3>
+                        <p class="mt-2 text-gray-400">Implemented statistical methods such as Z‑Score and Interquartile Range to identify outliers in cholesterol datasets, supplemented with box‑plots to visualise distribution and highlight anomalies.</p>
+                        <p class="mt-3 text-sm text-gray-500"><b>Technologies:</b> Python (NumPy, Pandas, SciPy)</p>
+                        <div class="mt-4 flex space-x-3">
+                            <a href="https://github.com/alaminifty/outliers-detection" class="text-blue-400 hover:text-blue-300 font-medium transition duration-200 flex items-center" target="_blank">
+                                <i data-lucide="github" class="w-4 h-4 mr-1"></i> GitHub Repo
+                            </a>
+                            <a href="https://alaminifty.github.io/outliers-detection/" class="text-blue-400 hover:text-blue-300 font-medium transition duration-200 flex items-center" target="_blank">
+                                <i data-lucide="link" class="w-4 h-4 mr-1"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 7: React Practice -->
+                <div class="flex flex-col lg:flex-row bg-gray-800 p-6 rounded-2xl shadow-2xl border border-blue-700/50">
+                    <div class="lg:w-1/3 flex items-center justify-center p-4">
+                        <i data-lucide="monitor" class="w-16 h-16 text-blue-400"></i>
+                    </div>
+                    <div class="lg:w-2/3 lg:pl-8 mt-4 lg:mt-0">
+                        <h3 class="text-2xl font-semibold text-blue-300">Mini Project: React Practice‑001</h3>
+                        <p class="mt-2 text-gray-400">A practice project that recreates a sports team landing page using React and TypeScript. Focused on responsive design and component‑based architecture while exploring modern React tooling.</p>
+                        <p class="mt-3 text-sm text-gray-500"><b>Technologies:</b> React, JavaScript, TypeScript</p>
+                        <div class="mt-4 flex space-x-3">
+                            <a href="https://github.com/alaminifty/React-Practical/tree/master/project-001" class="text-blue-400 hover:text-blue-300 font-medium transition duration-200 flex items-center" target="_blank">
+                                <i data-lucide="github" class="w-4 h-4 mr-1"></i> GitHub Repo
+                            </a>
+                            <a href="https://newcastle-united.netlify.app/" class="text-blue-400 hover:text-blue-300 font-medium transition duration-200 flex items-center" target="_blank">
+                                <i data-lucide="link" class="w-4 h-4 mr-1"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 sm:py-24 bg-gray-900 border-t border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl font-bold text-center mx-auto">Experience</h2>
+            <div class="mt-12 space-y-8">
+                <!-- Experience 1: Young Professional -->
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <h3 class="text-xl font-semibold text-blue-300">Young Professional (Data Science)</h3>
+                    <p class="mt-1 text-sm text-gray-500">Business Automation Ltd. — 2024</p>
+                    <ul class="mt-4 list-disc list-inside text-gray-400 space-y-2">
+                        <li>Maintained and analyzed the Bangladesh Investment Development Authority (BIDA) internal database to support investment decisions.</li>
+                        <li>Analyzed historical Hajj participant data and created interactive dashboards for the Ministry of Religious Affairs.</li>
+                        <li>Worked on data integration, ETL processes and dashboard charting for the Land E‑Mutation portal of the Ministry of Land.</li>
+                    </ul>
+                </div>
+                <!-- Experience 2: Freelance Web Developer -->
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <h3 class="text-xl font-semibold text-blue-300">Freelance Web Developer</h3>
+                    <p class="mt-1 text-sm text-gray-500">Independent Projects — 2023&nbsp;– Present</p>
+                    <p class="mt-4 text-gray-400">Designed and developed custom, responsive websites and interactive dashboards using React and Tailwind CSS. Served clients primarily from the USA and Canada, delivering tailored digital solutions and maintaining a strong client base through consistent quality, timely delivery and long‑term support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- LinkedIn Newsletter Banner Section -->
+<section id="newsletter-banner" class="relative py-16 sm:py-24 bg-gray-900 border-t border-b border-gray-700">
+    <!-- Sticky Banner Content -->
+    <div id="newsletter-banner-content" class="sticky top-0 z-20 px-4 sm:px-6 lg:px-8 transition-all duration-300">
+        <div class="max-w-7xl mx-auto text-center py-16">
+            <!-- Heading -->
+            <h2 class="text-4xl sm:text-5xl font-extrabold text-white leading-tight">
+                Join My LinkedIn Newsletter
+            </h2>
+            <!-- Subheading -->
+            <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+                I post articles on topics like <b>Data Science</b>, <b>Web Development</b>, and more. Join 450+ subscribers to stay updated with industry insights, trends, and practical knowledge.
+            </p>
+            <!-- CTA Button -->
+            <a href="https://www.linkedin.com/newsletters" class="mt-8 inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                Subscribe to Gigbig Analytics
+            </a>
+        </div>
+    </div>
+
+    <!-- Banner Image -->
+    <div class="relative mt-12">
+        <img src="banner.jpeg" alt="LinkedIn Newsletter Banner" class="w-full h-auto object-cover rounded-lg shadow-lg">
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 sm:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="section-title text-3xl font-bold mx-auto">Let's Connect</h2>
+            <p class="mt-4 text-xl text-gray-300">
+                Have a question, project idea, or just want to say hi? Drop me a message!
+            </p>
+            
+            <!-- Website Highlight Section -->
+            <div class="mt-10">
+                <p class="text-2xl font-semibold text-gray-300">Discover More About My Work</p>
+                <p class="mt-2 text-lg text-gray-400">Explore exciting projects, collaborations, and the services I offer on my website.</p>
+                <a href="https://www.alaminifty.com" target="_blank" class="mt-6 inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                    Visit My Website
+                </a>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
+                <div class="flex items-center space-x-3">
+                    <i data-lucide="mail" class="w-6 h-6 text-blue-400"></i>
+                    <a href="mailto:ifty.alamin54@gmail.com" class="text-lg text-gray-300 hover:text-blue-400 transition">ifty.alamin54@gmail.com</a>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <i data-lucide="phone" class="w-6 h-6 text-blue-400"></i>
+                    <a href="tel:+8801795345067" class="text-lg text-gray-300 hover:text-blue-400 transition">+880&nbsp;179&nbsp;534&nbsp;5067</a>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <i data-lucide="linkedin" class="w-6 h-6 text-blue-400"></i>
+                    <a href="https://linkedin.com/in/alaminifty" target="_blank" class="text-lg text-gray-300 hover:text-blue-400 transition">in/alaminifty</a>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <i data-lucide="github" class="w-6 h-6 text-blue-400"></i>
+                    <a href="https://github.com/alaminifty" target="_blank" class="text-lg text-gray-300 hover:text-blue-400 transition">github.com/alaminifty</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-700 mt-16 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
+            &copy; <span id="year"></span> Al&nbsp;Amin&nbsp;Ifty. All Rights Reserved.
+        </div>
+    </footer>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        // Typing Effect for Hero Section
+        const phrases = [
+            "Front‑End Developer",
+            "Data Analyst",
+            "Dashboard Designer",
+            "React & Tailwind Enthusiast"
+        ];
+        const typingTextElement = document.getElementById('typing-text');
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typingTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typingSpeed = 1500;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingSpeed = 100;
+            } else {
+                typingSpeed = isDeleting ? 50 : 100;
+            }
+            setTimeout(type, typingSpeed);
+        }
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        // Start the typing animation on window load
+        window.onload = function() {
+            type();
+        };
+    </script>
+</body>
+</html>
